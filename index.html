@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PGNR Links | Free Fire Energy 🚀</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #0ea5e9, #164e63);
+      background-size: 300% 300%;
+      animation: breathe 40s ease infinite;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @keyframes breathe {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      text-align: center;
+      padding: 70px 24px 60px;
+      max-width: 480px;
+      width: 94%;
+      background: rgba(15,23,42,0.55);
+      backdrop-filter: blur(16px);
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 60px rgba(0,0,0,0.55);
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+
+    .audio-btn {
+      position: absolute;
+      top: 18px; right: 18px;
+      background: rgba(14,165,233,0.35);
+      border: none;
+      color: white;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .audio-btn:hover { transform: scale(1.12); background: rgba(14,165,233,0.6); }
+
+    .avatar-wrapper {
+      margin: 0 auto 32px;
+      width: 160px; height: 160px;
+      animation: float 12s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-14px); } }
+    .avatar {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      border: 6px solid rgba(14,165,233,0.35);
+      object-fit: cover;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      transition: all 0.45s ease;
+    }
+    .avatar:hover { transform: scale(1.07); box-shadow: 0 20px 60px rgba(0,0,0,0.65); }
+
+    h1 {
+      font-size: 3.1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #e0f2fe, #7dd3fc, #e0f2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .username { font-size: 1.45rem; opacity: 0.9; margin-bottom: 16px; color: #cbd5e1; }
+    .bio { font-size: 1.12rem; line-height: 1.7; margin-bottom: 45px; opacity: 0.93; }
+
+    .social-section { display: flex; flex-direction: column; gap: 18px; margin-bottom: 35px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%;
+      padding: 18px 24px; font-size: 1.18rem; font-weight: 600; color: white;
+      text-decoration: none; border-radius: 60px; transition: all 0.4s ease;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.45);
+    }
+    .btn:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,0.6); }
+
+    .instagram  { background: linear-gradient(135deg, #f472b6, #db2777); }
+    .tiktok     { background: #000; }
+    .youtube    { background: #ff0000; }
+    .x-twitter  { background: #000; }
+    .whatsapp   { background: #25D366; }
+
+    .action-buttons { display: flex; justify-content: center; gap: 18px; margin-top: 24px; flex-wrap: wrap; }
+    .about-btn, .collab-btn {
+      padding: 14px 32px; font-size: 1.05rem; font-weight: 500; color: #cbd5e1;
+      border: 1px solid rgba(14,165,233,0.4); border-radius: 50px;
+      background: rgba(14,165,233,0.12); backdrop-filter: blur(12px);
+      transition: all 0.4s ease; cursor: pointer;
+    }
+    .about-btn:hover, .collab-btn:hover { transform: translateY(-4px); background: rgba(14,165,233,0.28); border-color: #0ea5e9; }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: none;
+      align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(8px);
+    }
+    .modal-content {
+      background: rgba(15,23,42,0.92); backdrop-filter: blur(14px);
+      border: 1px solid rgba(14,165,233,0.35); border-radius: 28px;
+      max-width: 90%; width: 460px; max-height: 90vh; overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.65);
+      animation: slideUp 0.5s ease-out;
+    }
+    @keyframes slideUp { from { transform: translateY(70px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .modal-header { padding: 24px 28px 0; position: relative; }
+    .modal-title { font-size: 1.9rem; font-weight: 700; color: #7dd3fc; text-align: center; margin-bottom: 20px; }
+    .modal-close {
+      position: absolute; top: 20px; right: 24px; background: none; border: none; color: white;
+      font-size: 2.2rem; cursor: pointer; transition: all 0.35s;
+    }
+    .modal-close:hover { transform: rotate(90deg); }
+    .modal-body {
+      padding: 0 28px 80px; /* extra bottom space so buttons/content not cut */
+      max-height: calc(90vh - 120px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(14,165,233,0.5) transparent;
+    }
+    .modal-body::-webkit-scrollbar { width: 6px; }
+    .modal-body::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.5); border-radius: 10px; }
+    .modal-body::-webkit-scrollbar-track { background: transparent; }
+
+    /* About Us UI - card style */
+    .about-card {
+      background: rgba(30,41,59,0.65);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 16px 0;
+      transition: all 0.4s ease;
+    }
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(14,165,233,0.3);
+      border-color: rgba(14,165,233,0.55);
+    }
+    .about-card p {
+      margin-bottom: 16px;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+    .about-card .icon {
+      font-size: 2rem;
+      color: #7dd3fc;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* Scroll to top button in modals */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(14,165,233,0.7);
+      border: none;
+      color: white;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      transition: all 0.4s ease;
+      z-index: 1100;
+    }
+    .scroll-top-btn:hover { background: #0ea5e9; transform: scale(1.15); }
+    .scroll-top-btn.show { display: flex; }
+
+    @media (max-width: 500px) {
+      .container { padding: 60px 20px 50px; }
+      h1 { font-size: 2.6rem; }
+      .avatar-wrapper, .avatar { width:140px; height:140px; }
+      .modal-content { max-height: 92vh; }
+      .modal-body { max-height: calc(92vh - 110px); }
+      .scroll-top-btn { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button id="audioToggle" class="audio-btn">
+      <i id="audioIcon" class="fas fa-volume-mute"></i>
+    </button>
+
+    <div class="avatar-wrapper">
+      <img src="angelic-anime-boy-mkh7ix27pkao0buz.jpg" alt="Pgnr" class="avatar"/>
+    </div>
+    
+    <h1>PGNR</h1>
+    <div class="username">@PGNR_58</div>
+    
+    <div class="bio">
+      App Designer 🚀<br/>
+      Building cool stuff daily •
+    </div>
+
+    <div class="social-section">
+      <a href="https://instagram.com/yourusername" target="_blank" class="btn instagram">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://www.tiktok.com/@yourusername" target="_blank" class="btn tiktok">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a href="https://www.youtube.com/@PGNR_58" target="_blank" class="btn youtube">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
+      <a href="https://x.com/yourhandle" target="_blank" class="btn x-twitter">
+        <i class="fab fa-x-twitter"></i> X / Twitter
+      </a>
+      <a href="https://wa.me/977yournumber" target="_blank" class="btn whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp Me
+      </a>
+    </div>
+
+    <div class="action-buttons">
+      <button class="about-btn" onclick="openAboutModal()">
+        <i class="fas fa-user"></i> About Me
+      </button>
+      <button class="collab-btn" onclick="openCollabModal()">
+        <i class="fas fa-handshake"></i> Collab
+      </button>
+    </div>
+
+    <audio id="bgAudio" loop preload="metadata">
+      <source src="Ogryzek_-_EMPIRE_Slowed_48kbps.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- About Modal (only About Us - card UI) -->
+  <div id="aboutModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">About App</div>
+        <button class="modal-close" onclick="closeAboutModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="about-card">
+          <i class="fas fa-rocket icon"></i>
+          <p>Hey! I'm Youtuber, a passionate app developer living in the heart of Nepal. 🌄</p>
+          <p>I love turning ideas into real mobile apps using Flutter, building clean UIs, and creating things that actually make life easier or more fun. From late-night coding sessions with momo breaks to exploring the city for inspiration — that's my daily vibe.</p>
+        </div>
+
+        <div class="about-card">
+          <i class="fas fa-code icon"></i>
+          <p>Right now, I'm focused on personal projects, learning new tech stacks like Riverpod, Supabase, Firebase, and sharing the journey here and there. If you're into apps, Nepal culture, trekking stories, or just want to collab on something cool — hit me up!</p>
+        </div>
+
+        <div class="about-card">
+          <i class="fas fa-mountain icon"></i>
+          <p>Kathmandu forever 🇳🇵 | Code, and mountains 🚀</p>
+          <p>Feel free to connect — let's build something awesome together!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll to top button in About modal -->
+    <button id="aboutScrollTop" class="scroll-top-btn" onclick="scrollModalTop('aboutModal')">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <!-- Collab Modal - simple scrollable text only -->
+  <div id="collabModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Let's Collab! 🚀</div>
+        <button class="modal-close" onclick="closeCollabModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="padding: 20px 0; text-align: center;">
+          <h3 style="color:#7dd3fc; margin-bottom:20px;">Want to collaborate?</h3>
+          
+          <p style="margin-bottom:24px; line-height:1.8;">
+            I'm open to cool ideas — YouTube collabs, app features, Nepal tech projects, shoutouts, or anything creative!
+          </p>
+
+          <p style="margin-bottom:24px; line-height:1.8;">
+            Just drop me a message on WhatsApp (button above) or email me directly at:<br>
+            <strong style="color:#7dd3fc; font-size:1.1rem;">pgnrbusinessesmail@gmail.com</strong>
+          </p>
+
+          <p style="margin-bottom:24px; line-height:1.8;">
+            Tell me:
+          </p>
+          <ul style="text-align:left; max-width:380px; margin:0 auto 32px; line-height:1.8; list-style:none; padding-left:0;">
+            <li style="margin-bottom:12px;">• Your name / channel / project</li>
+            <li style="margin-bottom:12px;">• What kind of collab (video, app help, feature idea, etc.)</li>
+            <li style="margin-bottom:12px;">• Any links / details</li>
+          </ul>
+
+          <p style="line-height:1.8;">
+            Looking forward to hearing from you — let's create something fire together! 🇳🇵🚀
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll to top button in Collab modal -->
+    <button id="collabScrollTop" class="scroll-top-btn" onclick="scrollModalTop('collabModal')">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <script>
+    // Audio toggle
+    const audio = document.getElementById('bgAudio');
+    const toggleBtn = document.getElementById('audioToggle');
+    const icon = document.getElementById('audioIcon');
+
+    toggleBtn.addEventListener('click', () => {
+      if (audio.paused || audio.ended) {
+        audio.muted = false;
+        audio.volume = 0.25;
+        audio.play().catch(()=>{});
+        icon.classList.remove('fa-volume-mute');
+        icon.classList.add('fa-volume-up');
+      } else {
+        audio.pause();
+        icon.classList.remove('fa-volume-up');
+        icon.classList.add('fa-volume-mute');
+      }
+    });
+
+    // About Modal
+    function openAboutModal() {
+      document.getElementById('aboutModal').style.display = 'flex';
+      checkScroll('aboutModal', 'aboutScrollTop');
+    }
+    function closeAboutModal() {
+      document.getElementById('aboutModal').style.display = 'none';
+    }
+    document.getElementById('aboutModal')?.addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeAboutModal();
+    });
+
+    // Collab Modal
+    function openCollabModal() {
+      document.getElementById('collabModal').style.display = 'flex';
+      checkScroll('collabModal', 'collabScrollTop');
+    }
+    function closeCollabModal() {
+      document.getElementById('collabModal').style.display = 'none';
+    }
+    document.getElementById('collabModal')?.addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeCollabModal();
+    });
+
+    // Scroll-to-top logic
+    function checkScroll(modalId, btnId) {
+      const body = document.querySelector(`#${modalId} .modal-body`);
+      const btn = document.getElementById(btnId);
+      if (!body || !btn) return;
+
+      const toggle = () => {
+        btn.classList.toggle('show', body.scrollTop > 300);
+      };
+
+      body.addEventListener('scroll', toggle);
+      toggle(); // initial check
+    }
+
+    function scrollModalTop(modalId) {
+      const body = document.querySelector(`#${modalId} .modal-body`);
+      if (body) body.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
